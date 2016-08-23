@@ -1,0 +1,39 @@
+{
+  "name": "cdnjs-ext",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --config ./webpack.dev.config.js",
+    "test": "write some tests"
+  },
+  "keywords": [],
+  "author": "John Stewart <me@johnstewart.io> (http://johnstewart.io)",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.11.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "css-loader": "^0.23.1",
+    "node-sass": "^3.8.0",
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1",
+    "redux-logger": "^2.6.1",
+    "sass-loader": "^4.0.0",
+    "webpack": "^1.13.1"
+  },
+  "dependencies": {
+    "es6-promise": "^3.2.1",
+    "html-webpack-plugin": "^2.22.0",
+    "isomorphic-fetch": "^2.2.1",
+    "lodash": "^4.13.1",
+    "material-ui": "^0.15.4",
+    "react-redux": "^4.4.5",
+    "react-tap-event-plugin": "^1.0.0",
+    "redux": "^3.5.2",
+    "redux-thunk": "^2.1.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1"
+  }
+}
