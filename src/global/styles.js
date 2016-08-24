@@ -54,9 +54,6 @@ export const search = {
     margin: '0 20px',
     alignSelf: 'center'
   },
-  textFieldContainer: {
-    width: '297px'
-  },
   textFieldUnderline: {
     borderColor: APP_PRIMARY_COLOR
   },
@@ -94,11 +91,15 @@ export const results = {
     borderRadius: '3px',
     padding: '13px 20px',
     display: 'flex',
-    margin: '0 0 20px 0'
+    margin: '0 0 20px 0',
+    flexWrap: 'nowrap',
+    justifyContent: 'flex-start',
+    alignItems: 'center'
   },
   libraryName: {
     root: {
-      alignSelf: 'center'
+      // alignSelf: 'center'
+      flexGrow: 2
     },
     name: {
       color: APP_PRIMARY_COLOR,
@@ -112,11 +113,11 @@ export const results = {
     background: APP_GREY,
     height: '22px',
     margin: '0 13px',
-    alignSelf: 'center'
+    // alignSelf: 'center'
   },
   libraryVersion: {
     root: {
-      alignSelf: 'center'
+      // alignSelf: 'center'
     },
     version: {
       color: APP_DARK_GREY,
@@ -125,8 +126,8 @@ export const results = {
   },
   libraryDescription: {
     root: {
-      alignSelf: 'center',
-      width: '185px',
+      // alignSelf: 'center',
+      maxWidth: '185px',
       whiteSpace: 'nowrap',
       textOverflow: 'ellipsis',
       overflow: 'hidden'
@@ -144,7 +145,7 @@ export const results = {
     },
     container: {
       alignSelf: 'center',
-      marginLeft: '40px'
+      marginLeft: 'auto'
     },
     label: {
       fontSize: '14px',
