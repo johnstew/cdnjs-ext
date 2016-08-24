@@ -1,5 +1,10 @@
 /* Global */
 export const APP_PRIMARY_COLOR = '#DD4814';
+export const APP_DARK_GREY = '#727272';
+export const APP_GREY = '#D1D1D1';
+export const APP_LIGHT_GREY = '#EEEEEE';
+export const APP_BLACK = '#000000';
+export const APP_WHITE = '#FFFFFF';
 
 /* Header - App Bar */
 export const appBar = {
@@ -21,13 +26,18 @@ export const appBar = {
 export const app = {
   root: {
     width: '500px',
-    height: 'auto',
-    maxHeight: '400px',
-    margin: 'auto'
+    height: '400px',
+    margin: 'auto',
+    position: 'relative'
   },
   headerContainer: {
     boxShadow: '0 2px 4px 0 rgba(0,0,0,.24)',
-    position: 'relative'
+    position: 'absolute',
+    top: '0',
+    height: '103px',
+    background: APP_WHITE,
+    zIndex: '1',
+    width: '100%'
   }
 };
 
@@ -39,7 +49,7 @@ export const search = {
   },
   divider: {
     width: '1px',
-    background: '#D1D1D1',
+    background: APP_GREY,
     height: '28px',
     margin: '0 20px',
     alignSelf: 'center'
@@ -56,7 +66,7 @@ export const search = {
     width: '37px'
   },
   icon: {
-    color: '#000000',
+    color: APP_BLACK,
   },
   versionSelect: {
     root: {
@@ -71,13 +81,75 @@ export const search = {
 /* Results */
 export const results = {
   root: {
-    background: '#EEEEEE',
-    padding: '20px'
+    background: APP_LIGHT_GREY,
+    padding: '20px',
+    overflowY: 'scroll',
+    maxHeight: '257px',
+    top: '103px',
+    position: 'relative'
   },
   libraryResultContainer: {
     width: '100%',
     height: '47px',
     borderRadius: '3px',
-    padding: '13px 20px'
+    padding: '13px 20px',
+    display: 'flex',
+    margin: '0 0 20px 0'
+  },
+  libraryName: {
+    root: {
+      alignSelf: 'center'
+    },
+    name: {
+      color: APP_PRIMARY_COLOR,
+      textDecoration: 'underline',
+      cursor: 'pointer',
+      fontSize: '18px'
+    }
+  },
+  libraryDivider: {
+    width: '1px',
+    background: APP_GREY,
+    height: '22px',
+    margin: '0 13px',
+    alignSelf: 'center'
+  },
+  libraryVersion: {
+    root: {
+      alignSelf: 'center'
+    },
+    version: {
+      color: APP_DARK_GREY,
+      fontSize: '12px'
+    }
+  },
+  libraryDescription: {
+    root: {
+      alignSelf: 'center',
+      width: '185px',
+      whiteSpace: 'nowrap',
+      textOverflow: 'ellipsis',
+      overflow: 'hidden'
+    },
+    text: {
+      color: APP_DARK_GREY,
+      fontSize: '12px'
+    }
+  },
+  copyButton: {
+    root: {
+      height: '23px',
+      width: '61px',
+      minWidth: 'none'
+    },
+    container: {
+      alignSelf: 'center',
+      marginLeft: '40px'
+    },
+    label: {
+      fontSize: '14px',
+      padding: '0',
+      top: '2px'
+    }
   }
 };

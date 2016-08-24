@@ -7,8 +7,8 @@ import * as styles from '../global/styles';
 
 const App = (props) => {
   return (
-    <div style={styles.app.root}>
-      <Paper>
+    <div>
+      <Paper style={styles.app.root}>
         <div style={styles.app.headerContainer}>
           <Header titleText="cdnjs-ext" />
           <Search />

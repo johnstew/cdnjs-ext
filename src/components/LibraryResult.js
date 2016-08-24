@@ -1,15 +1,33 @@
 import React, { PropTypes } from 'react';
 import Paper from 'material-ui/Paper';
 import * as styles from '../global/styles';
+import LibraryName from './LibraryName';
+import LibraryDivider from './LibraryDivider';
+import LibraryVersion from './LibraryVersion';
+import LibraryDescription from './LibraryDescription';
+import CopyButton from './CopyButton';
 
 class LibraryResult extends React.Component {
   render () {
+    let { name, version, description, copyValue } = this.props;
     return (
-      <Paper style={styles.results.libraryResultContainer} zDepth={1}>
-        <h3>Hello</h3>
+      <Paper style={styles.results.libraryResultContainer} zDepth={2}>
+        <LibraryName name={name} />
+        <LibraryDivider />
+        <LibraryVersion version={version} />
+        <LibraryDivider />
+        <LibraryDescription text={description} />
+        <CopyButton value={copyValue} />
       </Paper>
     );
   }
 }
+
+LibraryResult.propTypes = {
+  name: PropTypes.string.isRequired,
+  version: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  copyValue: PropTypes.string.isRequired
+};
 
 export default LibraryResult;
