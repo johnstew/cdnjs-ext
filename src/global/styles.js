@@ -83,7 +83,8 @@ export const results = {
     overflowY: 'scroll',
     maxHeight: '257px',
     top: '103px',
-    position: 'relative'
+    position: 'relative',
+    height: '100%'
   },
   libraryResultContainer: {
     width: '100%',
@@ -156,5 +157,9 @@ export const results = {
       padding: '0',
       top: '2px'
     }
+  },
+  assetURL: {
+    color: APP_DARK_GREY,
+    fontSize: '12px'
   }
 };

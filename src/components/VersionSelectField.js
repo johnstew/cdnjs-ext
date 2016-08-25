@@ -13,10 +13,14 @@ class VersionSelectField extends React.Component {
   }
 
   handleChange(event, index, value) {
+    const { versionChange, selected } = this.props;
     this.setState({value});
+
+    versionChange({ version: value, files: selected.assets[index].files });
   }
 
   render () {
+    const { versions } = this.props;
     return (
       <div>
         <SelectField
@@ -24,8 +28,13 @@ class VersionSelectField extends React.Component {
           onChange={this.handleChange}
           style={styles.search.versionSelect.root}
         >
-          <MenuItem value="3.1.0" primaryText="3.1.0" />
-          <MenuItem value="2.2.0" primaryText="2.2.0" />
+          {
+            _.map(versions, (v,i) => <MenuItem
+              key={i}
+              value={v}
+              primaryText={v}
+            />)
+          }
         </SelectField>
       </div>
     );
@@ -33,7 +42,8 @@ class VersionSelectField extends React.Component {
 }
 
 VersionSelectField.propTypes = {
-  init: PropTypes.string.isRequired
+  init: PropTypes.string.isRequired,
+  versions: PropTypes.array.isRequired
 };
 
 export default VersionSelectField;

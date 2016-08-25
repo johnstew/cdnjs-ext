@@ -6,15 +6,15 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 class CopyButton extends React.Component {
   constructor(props) {
     super(props);
-    let { value } = this.props;
 
-    this.state = { copied: false, value };
+    this.state = { copied: false };
   }
 
   render () {
+    const { value } = this.props;
     return (
       <div style={styles.results.copyButton.container}>
-        <CopyToClipboard text={this.state.value}
+        <CopyToClipboard text={value}
           onCopy={() => this.setState({copied: true})}>
           <RaisedButton
             label="COPY"

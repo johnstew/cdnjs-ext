@@ -7,18 +7,17 @@ import * as styles from '../global/styles';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { search } from '../actions/search';
+import { versionChange } from '../actions/select';
 
 class Search extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      showVersion: false
-    };
   }
 
   render () {
-    if (!this.state.showVersion) {
+    let { ui, selected } = this.props;
+
+    if (ui.searchPage) {
       return (
         <div style={styles.search.root}>
           <SearchIcon />
@@ -29,16 +28,19 @@ class Search extends React.Component {
           />
         </div>
       );
-    } else {
+    } else if (ui.assetPage) {
       return (
         <div style={styles.search.root}>
           <SearchIcon />
           <SearchTextField
             placeholder="jQuery..."
+            {...this.props}
           />
           <SearchDivider />
           <VersionSelectField
-            init="3.1.0"
+            init={selected.versions.current.version}
+            versions={selected.versions.all}
+            {...this.props}
           />
         </div>
       );
@@ -47,11 +49,14 @@ class Search extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return state;
+  return {
+    ui: state.ui,
+    selected: state.selected.data
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ search }, dispatch);
+  return bindActionCreators({ search, versionChange }, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);

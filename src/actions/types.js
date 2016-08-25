@@ -3,3 +3,4 @@ export const SEARCH_DONE = 'SEARCH_DONE';
 export const SEARCH_FAIL = 'SEARCH_FAIL';
 
 export const SELECT = 'SELECT';
+export const VERSION_CHANGE = 'VERSION_CHANGE';

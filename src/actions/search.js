@@ -26,7 +26,7 @@ export function searchFail(error) {
 
 export function search(input) {
   return (dispatch) => {
-    dispatch(searchStarted);
+    dispatch(searchStarted());
     const fields = ['description','homepage','keywords','assets'].join(',');
     fetch(`https://api.cdnjs.com/libraries?search=${input}&fields=${fields}`)
     .then((response) => {
