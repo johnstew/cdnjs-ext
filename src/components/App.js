@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import Header from './Header';
-import Search from './Search';
-import Results from './Results';
+import Search from '../containers/Search';
+import Results from '../containers/Results';
 import Paper from 'material-ui/paper';
 import * as styles from '../global/styles';
 

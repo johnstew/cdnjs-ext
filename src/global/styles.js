@@ -98,8 +98,8 @@ export const results = {
   },
   libraryName: {
     root: {
-      // alignSelf: 'center'
-      flexGrow: 2
+      alignSelf: 'center'
+      // flexGrow: 2
     },
     name: {
       color: APP_PRIMARY_COLOR,
@@ -113,11 +113,11 @@ export const results = {
     background: APP_GREY,
     height: '22px',
     margin: '0 13px',
-    // alignSelf: 'center'
+    alignSelf: 'center'
   },
   libraryVersion: {
     root: {
-      // alignSelf: 'center'
+      alignSelf: 'center'
     },
     version: {
       color: APP_DARK_GREY,
@@ -126,15 +126,19 @@ export const results = {
   },
   libraryDescription: {
     root: {
-      // alignSelf: 'center',
+      alignSelf: 'center',
       maxWidth: '185px',
       whiteSpace: 'nowrap',
       textOverflow: 'ellipsis',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      cursor: 'pointer'
     },
     text: {
       color: APP_DARK_GREY,
       fontSize: '12px'
+    },
+    icon: {
+      color: APP_PRIMARY_COLOR
     }
   },
   copyButton: {

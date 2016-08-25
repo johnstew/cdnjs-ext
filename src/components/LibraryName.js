@@ -4,7 +4,7 @@ import * as styles from '../global/styles';
 const LibraryName = (props) => {
   let { name } = props;
   return (
-    <div style={styles.results.libraryName.root}>
+    <div style={styles.results.libraryName.root} onClick={props.onClick}>
       <span style={styles.results.libraryName.name}>{name}</span>
     </div>
   );

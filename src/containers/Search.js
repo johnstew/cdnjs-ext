@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
-import SearchTextField from './SearchTextField';
-import SearchIcon from './SearchIcon';
-import VersionSelectField from './VersionSelectField';
-import SearchDivider from './SearchDivider';
+import SearchTextField from '../components/SearchTextField';
+import SearchIcon from '../components/SearchIcon';
+import VersionSelectField from '../components/VersionSelectField';
+import SearchDivider from '../components/SearchDivider';
 import * as styles from '../global/styles';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';

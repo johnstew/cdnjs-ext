@@ -9,10 +9,10 @@ import CopyButton from './CopyButton';
 
 class LibraryResult extends React.Component {
   render () {
-    let { name, version, description, copyValue } = this.props;
+    let { name, version, description, copyValue, onSelect } = this.props;
     return (
       <Paper style={styles.results.libraryResultContainer} zDepth={2}>
-        <LibraryName name={name} />
+        <LibraryName name={name} onClick={onSelect} />
         <LibraryDivider />
         <LibraryVersion version={version} />
         <LibraryDivider />
@@ -27,7 +27,8 @@ LibraryResult.propTypes = {
   name: PropTypes.string.isRequired,
   version: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  copyValue: PropTypes.string.isRequired
+  copyValue: PropTypes.string.isRequired,
+  onSelect: PropTypes.func.isRequired
 };
 
 export default LibraryResult;

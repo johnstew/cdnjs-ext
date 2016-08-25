@@ -1,12 +1,13 @@
 import React, { PropTypes } from 'react';
-import LibraryResult from './LibraryResult';
+import LibraryResult from '../components/LibraryResult';
 import * as styles from '../global/styles';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { select } from '../actions/select';
 
 class Results extends React.Component {
   render () {
-    const { results } = this.props;
+    const { results, select } = this.props;
 
     console.log(results);
     if (results) {
@@ -23,6 +24,7 @@ class Results extends React.Component {
                   version={r.assets[0].version}
                   description={r.description}
                   copyValue={r.latest}
+                  onSelect={() => select(r)}
                 />
               ))
             })
@@ -45,7 +47,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({}, dispatch);
+  return bindActionCreators({ select }, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Results);
