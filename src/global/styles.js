@@ -91,8 +91,10 @@ export const results = {
     height: '47px',
     borderRadius: '3px',
     padding: '13px 20px',
+    margin: '0 0 20px 0'
+  },
+  libraryResultInner: {
     display: 'flex',
-    margin: '0 0 20px 0',
     flexWrap: 'nowrap',
     justifyContent: 'flex-start',
     alignItems: 'center'

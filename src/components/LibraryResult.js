@@ -12,12 +12,14 @@ class LibraryResult extends React.Component {
     let { name, version, description, copyValue, onSelect } = this.props;
     return (
       <Paper style={styles.results.libraryResultContainer} zDepth={2}>
-        <LibraryName name={name} onClick={onSelect} />
-        <LibraryDivider />
-        <LibraryVersion version={version} />
-        <LibraryDivider />
-        <LibraryDescription text={description} />
-        <CopyButton value={copyValue} />
+        <div style={styles.results.libraryResultInner}>
+          <LibraryName name={name} onClick={onSelect} />
+          <LibraryDivider />
+          <LibraryVersion version={version} />
+          <LibraryDivider />
+          <LibraryDescription text={description} />
+          <CopyButton value={copyValue} />
+        </div>
       </Paper>
     );
   }
