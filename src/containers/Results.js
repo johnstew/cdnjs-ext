@@ -22,7 +22,7 @@ class Results extends React.Component {
                   key={i}
                   name={r.name}
                   version={r.assets[0].version}
-                  description={r.description}
+                  info={r}
                   copyValue={r.latest}
                   onSelect={() => select(_.assign({}, r, {
                     versions: {

@@ -27,6 +27,8 @@ class VersionSelectField extends React.Component {
           value={this.state.value}
           onChange={this.handleChange}
           style={styles.search.versionSelect.root}
+          autoWidth={false}
+          maxHeight={200}
         >
           {
             _.map(versions, (v,i) => <MenuItem

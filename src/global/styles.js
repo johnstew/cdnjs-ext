@@ -5,6 +5,7 @@ export const APP_GREY = '#D1D1D1';
 export const APP_LIGHT_GREY = '#EEEEEE';
 export const APP_BLACK = '#000000';
 export const APP_WHITE = '#FFFFFF';
+export const APP_LIGHT_BLUE = '#2196F3';
 
 /* Header - App Bar */
 export const appBar = {
@@ -67,7 +68,7 @@ export const search = {
   },
   versionSelect: {
     root: {
-      width: '75px'
+      width: '90px'
     },
     underline: {
       borderColor: APP_PRIMARY_COLOR
@@ -91,13 +92,26 @@ export const results = {
     height: '47px',
     borderRadius: '3px',
     padding: '13px 20px',
-    margin: '0 0 20px 0'
+    margin: '0 0 20px 0',
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'flex-start',
+    alignItems: 'center'
   },
   libraryResultInner: {
     display: 'flex',
     flexWrap: 'nowrap',
     justifyContent: 'flex-start',
-    alignItems: 'center'
+    alignItems: 'center',
+    width: '100%'
+  },
+  assetResultContainer: {
+    width: '100%',
+    height: '47px',
+    borderRadius: '3px',
+    padding: '13px 20px',
+    margin: '0 0 20px 0',
+    display: 'flex'
   },
   libraryName: {
     root: {
@@ -141,7 +155,8 @@ export const results = {
       fontSize: '12px'
     },
     icon: {
-      color: APP_PRIMARY_COLOR
+      color: APP_PRIMARY_COLOR,
+      display: 'flex'
     }
   },
   copyButton: {
@@ -162,6 +177,36 @@ export const results = {
   },
   assetURL: {
     color: APP_DARK_GREY,
+    fontSize: '12px',
+    alignSelf: 'center'
+  },
+  infoContainer: {
+    display: 'block',
+    width: '100%',
+    padding: '20px 0px 0px 0px'
+  },
+  infoDescriptionContainer: {
+    display: 'block',
+    marginBottom: '10px'
+  },
+  infoDescription: {
+    color: APP_DARK_GREY,
     fontSize: '12px'
+  },
+  infoHomePageContainer: {
+    display: 'block',
+    marginBottom: '20px'
+  },
+  infoHomePageLink: {
+    color: APP_LIGHT_BLUE,
+    fontSize: '12px'
+  },
+  infoChipContainer: {
+    display: 'flex',
+    flexWrap: 'wrap'
+  },
+  infoChip: {
+    marginRight: '5px',
+    marginBottom: '10px'
   }
 };

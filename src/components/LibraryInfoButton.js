@@ -5,7 +5,9 @@ import * as styles from '../global/styles';
 const LibraryDescription = (props) => {
   let { text } = props;
   return (
-    <div style={styles.results.libraryDescription.root}>
+    <div
+      style={styles.results.libraryDescription.root}
+      onClick={props.onClick}>
       <FontIcon
         className="material-icons"
         style={styles.results.libraryDescription.icon}>
@@ -14,9 +16,5 @@ const LibraryDescription = (props) => {
     </div>
   );
 }
-
-LibraryDescription.propTypes = {
-  text: PropTypes.string.isRequired
-};
 
 export default LibraryDescription;

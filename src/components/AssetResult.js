@@ -12,7 +12,7 @@ class AssetResult extends React.Component {
   render () {
     const { url, showURL } = this.props;
     return (
-      <Paper style={styles.results.libraryResultContainer} zDepth={2}>
+      <Paper style={styles.results.assetResultContainer} zDepth={2}>
         <AssetURL url={showURL} />
         <CopyButton value={url} />
       </Paper>

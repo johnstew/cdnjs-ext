@@ -40,7 +40,7 @@ class SearchTextField extends React.Component {
   render () {
     let { placeholder, fullWidth } = this.props;
     return (
-      <div style={fullWidth ? { width: '100%' } : { width: '297px' }}>
+      <div style={fullWidth ? { width: '100%' } : { width: '277px' }}>
         <TextField
           underlineFocusStyle={styles.search.textFieldUnderline}
           id="searchInput"
