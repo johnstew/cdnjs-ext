@@ -12,7 +12,7 @@ const InfoDescription = (props) => {
 }
 
 InfoDescription.propTypes = {
-  description: PropTypes.string.isRequired
+  description: PropTypes.string
 };
 
 export default InfoDescription;

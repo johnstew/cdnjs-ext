@@ -122,7 +122,7 @@ export const results = {
       color: APP_PRIMARY_COLOR,
       textDecoration: 'underline',
       cursor: 'pointer',
-      fontSize: '18px'
+      fontSize: '13px'
     }
   },
   libraryDivider: {

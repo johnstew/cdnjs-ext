@@ -7,35 +7,24 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { select } from '../actions/select';
 import { cdnURL } from '../global/utils';
+import { incrementPageIndex } from '../actions/pagination';
+import LibraryResults from '../components/LibraryResults';
 
 class Results extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render () {
-    const { results, select, ui, selected } = this.props;
+    const { results, select, ui, selected, incrementPageIndex } = this.props;
     if (ui.searchPage && results && !ui.loading) {
-      const { pageIndex, pages } = results;
-      return (
-        <div style={styles.results.root}>
-          {
-            _.times(pageIndex, (i) => {
-              return _.map(pages[i],(r,i) => (
-                <LibraryResult
-                  key={i}
-                  name={r.name}
-                  version={r.assets[0].version}
-                  info={r}
-                  copyValue={r.latest}
-                  onSelect={() => select(_.assign({}, r, {
-                    versions: {
-                      current: r.assets[0],
-                      all: _.map(r.assets, (a) => a.version)
-                    }
-                  }))}
-                />
-              ))
-            })
-          }
-        </div>
-      );
+      const { pages, pageIndex } = results;
+      return <LibraryResults
+        pages={pages}
+        pageIndex={pageIndex}
+        incrementPageIndex={incrementPageIndex}
+        select={select}
+      />;
     } else if (ui.assetPage) {
       const { name } = selected;
       const { current } = selected.versions;
@@ -76,7 +65,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ select }, dispatch);
+  return bindActionCreators({ select, incrementPageIndex }, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Results);

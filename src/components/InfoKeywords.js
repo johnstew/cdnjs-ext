@@ -19,7 +19,7 @@ const InfoKeywords = (props) => {
 }
 
 InfoKeywords.propTypes = {
-  keywords: PropTypes.array.isRequired
+  keywords: PropTypes.array
 };
 
 export default InfoKeywords;

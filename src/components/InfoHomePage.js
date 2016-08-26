@@ -15,7 +15,7 @@ const InfoHomePage = (props) => {
 }
 
 InfoHomePage.propTypes = {
-  homePage: PropTypes.string.isRequired
+  homePage: PropTypes.string
 };
 
 export default InfoHomePage;
