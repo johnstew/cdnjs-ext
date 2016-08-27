@@ -17,7 +17,6 @@ class AssetResults extends React.Component {
   handleScroll() {
     const libRef = this.refs.assetResults;
     const scrollPos = libRef.scrollTop + libRef.getBoundingClientRect().height;
-    const { incrementPageIndex } = this.props;
     if (scrollPos >= libRef.scrollHeight) {
       this.setState({
         items: this.state.items.concat(this.loadItems(this.state.pageIndex + 1))
@@ -26,27 +25,19 @@ class AssetResults extends React.Component {
   }
 
   loadItems(pageIndex) {
-    const { pages, select } = this.props;
+    const { current, cdnURL, name } = this.props;
 
     this.setState({ pageIndex: this.state.pageIndex + 1 });
 
-    return _.map(pages[pageIndex],(r) => {
+    return _.map(current.files[pageIndex],(asset) => {
       // update global key
       this.key++;
 
-      return <LibraryResult
+      return <AssetResult
         key={this.key}
-        name={r.name}
-        version={r.assets[0].version}
-        info={r}
-        copyValue={r.latest}
-        onSelect={() => select(_.assign({}, r, {
-          versions: {
-            current: r.assets[0],
-            all: _.map(r.assets, (a) => a.version)
-          }
-        }))}
-      />
+        showURL={cdnURL(name, current.version, asset)}
+        url={cdnURL(name, current.version, asset, true)}
+      />;
     });
   }
 
@@ -70,10 +61,9 @@ class AssetResults extends React.Component {
 }
 
 AssetResults.propTypes = {
-  pages: PropTypes.array.isRequired,
-  pageIndex: PropTypes.number.isRequired,
-  incrementPageIndex: PropTypes.func.isRequired,
-  select: PropTypes.func.isRequired
+  current: PropTypes.object.isRequired,
+  cdnURL: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired
 };
 
 export default AssetResults;

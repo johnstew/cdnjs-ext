@@ -9,6 +9,7 @@ import { select } from '../actions/select';
 import { cdnURL } from '../global/utils';
 import { incrementPageIndex } from '../actions/pagination';
 import LibraryResults from '../components/LibraryResults';
+import AssetResults from '../components/AssetResults';
 
 class Results extends React.Component {
   constructor(props) {
@@ -28,19 +29,11 @@ class Results extends React.Component {
     } else if (ui.assetPage) {
       const { name } = selected;
       const { current } = selected.versions;
-      return (
-        <div style={styles.results.root}>
-          {
-            _.map(current.files, (asset, i) => {
-              return <AssetResult
-                key={i}
-                showURL={cdnURL(name, current.version, asset)}
-                url={cdnURL(name, current.version, asset, true)}
-              />
-            })
-          }
-        </div>
-      );
+      return <AssetResults
+        name={name}
+        current={current}
+        cdnURL={cdnURL}
+      />;
     } else if (ui.loading) {
       return (
         <div style={styles.results.root}>

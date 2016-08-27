@@ -4,6 +4,7 @@ import { versions } from './versions';
 export default function selected(state = {}, action) {
   switch (action.type) {
     case SELECT:
+      console.log(action.data);
       return _.assign({}, state, {
         data: {
           ...action.data,
@@ -11,7 +12,14 @@ export default function selected(state = {}, action) {
             return _.assign({}, a, {
               files: _.chunk(a.files, 20)
             })
-          })
+          }),
+          versions: {
+            all: [...action.data.versions.all],
+            current: {
+              files: _.chunk(action.data.versions.current.files, 20),
+              version: action.data.versions.current.version
+            }
+          }
         }
       });
     case VERSION_CHANGE:
