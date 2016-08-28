@@ -5,7 +5,7 @@ import Loader from '../components/Loader';
 import * as styles from '../global/styles';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { select } from '../actions/select';
+import { select, versionChangeDone } from '../actions/select';
 import { cdnURL } from '../global/utils';
 import { incrementPageIndex } from '../actions/pagination';
 import LibraryResults from '../components/LibraryResults';
@@ -29,10 +29,14 @@ class Results extends React.Component {
     } else if (ui.assetPage) {
       const { name } = selected;
       const { current } = selected.versions;
+      const { version } = ui;
+      const { versionChangeDone } = this.props;
       return <AssetResults
         name={name}
         current={current}
         cdnURL={cdnURL}
+        version={version}
+        versionChangeDone={versionChangeDone}
       />;
     } else if (ui.loading) {
       return (
@@ -58,7 +62,11 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ select, incrementPageIndex }, dispatch);
+  return bindActionCreators({
+    select,
+    incrementPageIndex,
+    versionChangeDone
+  }, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Results);

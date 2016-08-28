@@ -4,5 +4,6 @@ export const SEARCH_FAIL = 'SEARCH_FAIL';
 
 export const SELECT = 'SELECT';
 export const VERSION_CHANGE = 'VERSION_CHANGE';
+export const VERSION_CHANGE_DONE = 'VERSION_CHANGE_DONE';
 
 export const INCREMENT_PAGE_INDEX = 'INCREMENT_PAGE_INDEX';

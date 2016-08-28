@@ -4,7 +4,6 @@ import { versions } from './versions';
 export default function selected(state = {}, action) {
   switch (action.type) {
     case SELECT:
-      console.log(action.data);
       return _.assign({}, state, {
         data: {
           ...action.data,

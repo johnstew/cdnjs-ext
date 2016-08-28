@@ -18,18 +18,20 @@ class AssetResults extends React.Component {
     const libRef = this.refs.assetResults;
     const scrollPos = libRef.scrollTop + libRef.getBoundingClientRect().height;
     if (scrollPos >= libRef.scrollHeight) {
+      const newIndex = this.state.pageIndex + 1;
+      const { current } = this.props;
+      const newItems = this.loadItems(newIndex, current);
       this.setState({
-        items: this.state.items.concat(this.loadItems(this.state.pageIndex + 1))
+        items: this.state.items.concat(newItems),
+        pageIndex: newIndex
       });
     }
   }
 
-  loadItems(pageIndex) {
-    const { current, cdnURL, name } = this.props;
+  loadItems(pageIndex, current) {
+    const { cdnURL, name } = this.props;
 
-    this.setState({ pageIndex: this.state.pageIndex + 1 });
-
-    return _.map(current.files[pageIndex],(asset) => {
+    return _.map(current.files[pageIndex], (asset) => {
       // update global key
       this.key++;
 
@@ -42,10 +44,28 @@ class AssetResults extends React.Component {
   }
 
   componentDidMount() {
-    const newItems = this.loadItems(this.state.pageIndex);
+    const { current } = this.props;
+    const newItems = this.loadItems(0, current);
+
     this.setState({
-      items: this.state.items.concat(newItems)
+      items: newItems,
+      pageIndex: 0
     });
+  }
+
+  componentWillReceiveProps(newProps) {
+    const { version, versionChangeDone, current } = newProps; // bad name but means if version changed
+
+    if (version) {
+      this.refs.assetResults.scrollTop = 0;
+      this.key = 0;
+      const newItems = this.loadItems(0, current);
+      this.setState({
+        items: newItems,
+        pageIndex: 0
+      });
+      versionChangeDone();
+    }
   }
 
   render () {
@@ -63,7 +83,9 @@ class AssetResults extends React.Component {
 AssetResults.propTypes = {
   current: PropTypes.object.isRequired,
   cdnURL: PropTypes.func.isRequired,
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
+  version: PropTypes.bool.isRequired,
+  versionChangeDone: PropTypes.func.isRequired
 };
 
 export default AssetResults;
