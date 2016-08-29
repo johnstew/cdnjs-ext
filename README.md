@@ -2,6 +2,10 @@
 
 cdnjs-ext is a Chrome extension that allows you to interact with cdnjs in a quick and simple way.
 
+
+## Chrome Link
+[Get it on the Chrome Web Store!](https://chrome.google.com/webstore/detail/cdnjs-ext/hjelkfgknkclfgkhppidinmemedbgccn)
+
 ## Screenshots
 ![cdnjs-ext screenshot 1](./screenshot-1.jpg)
 
@@ -23,3 +27,6 @@ cdnjs-ext is a Chrome extension that allows you to interact with cdnjs in a quic
 ### Test
 
 Coming soon...
+
+**Build**
+`npm run build`
