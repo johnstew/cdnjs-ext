@@ -172,7 +172,7 @@ export const results = {
     label: {
       fontSize: '14px',
       padding: '0',
-      top: '2px'
+      top: '3px'
     },
     ripple: {
       color: '#000000'

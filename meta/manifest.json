@@ -1,0 +1,15 @@
+{
+  "name": "cdnjs-ext",
+  "description": "cdnjs-ext is an extension that allows you to interact with cdnjs in a quick and simple way within Chrome.",
+  "version": "1.0",
+  "manifest_version": 2,
+  "icons": {
+    "16": "cdnjs-icon-16.png",
+    "48": "cdnjs-icon-48.png",
+    "128": "cdnjs-icon-128.png"
+  },
+  "permissions": [],
+  "browser_action": {
+    "default_popup": "index.html"
+  }
+}
