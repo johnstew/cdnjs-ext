@@ -29,4 +29,5 @@ cdnjs-ext is a Chrome extension that allows you to interact with cdnjs in a quic
 Coming soon...
 
 **Build**
+
 `npm run build`
