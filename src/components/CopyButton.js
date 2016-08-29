@@ -21,6 +21,7 @@ class CopyButton extends React.Component {
             backgroundColor={styles.APP_PRIMARY_COLOR}
             labelColor={styles.APP_WHITE}
             labelStyle={styles.results.copyButton.label}
+            rippleStyle={styles.results.copyButton.ripple}
             style={styles.results.copyButton.root}
           />
         </CopyToClipboard>

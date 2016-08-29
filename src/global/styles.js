@@ -173,6 +173,9 @@ export const results = {
       fontSize: '14px',
       padding: '0',
       top: '2px'
+    },
+    ripple: {
+      color: '#000000'
     }
   },
   assetURL: {
