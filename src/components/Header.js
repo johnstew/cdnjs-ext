@@ -29,7 +29,7 @@ class Header extends React.Component {
             targetOrigin={{horizontal: 'right', vertical: 'top'}}
             anchorOrigin={{horizontal: 'right', vertical: 'top'}}
           >
-            <MenuItem href="http://github.com" primaryText="Fork Me" />
+            <MenuItem href="https://github.com/johnstew/cdnjs-ext" primaryText="Fork Me" />
           </IconMenu>
         }
       />

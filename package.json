@@ -1,7 +1,7 @@
 {
   "name": "cdnjs-ext",
   "version": "1.0.0",
-  "description": "cdnjs-ext is an extension that allows you to interact with cdnjs in a quick and simple way within Chrome.",
+  "description": "cdnjs-ext is a Chrome extension that allows you to interact with cdnjs in a quick and simple way.",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.dev.config.js",

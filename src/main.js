@@ -10,11 +10,14 @@ import rootReducer from './reducers';
 
 injectTapEventPlugin();
 
+const reduxDevTools = window.devToolsExtension ?
+  window.devToolsExtension() : f => f;
+
 let store = createStore(
   rootReducer,
   compose(
     applyMiddleware(thunk),
-    window.devToolsExtension ? window.devToolsExtension() : f => f
+    process.env.NODE_ENV === 'dev' ? reduxDevTools : f => f
   )
 );
 
