@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.dev.config.js",
     "build": "cp -R meta/* build/ && webpack --config ./webpack.prod.config.js",
-    "test": "mocha ./src/tests/* --compilers js:babel-core/register"
+    "test": "mocha --require ./src/tests/setup.js --recursive ./src/tests/* --compilers js:babel-core/register"
   },
   "keywords": [],
   "author": "John Stewart <me@johnstewart.io> (http://johnstewart.io)",
@@ -20,6 +20,7 @@
     "chai": "^3.5.0",
     "css-loader": "^0.23.1",
     "enzyme": "^2.4.1",
+    "jsdom": "^9.4.2",
     "node-sass": "^3.8.0",
     "react": "^15.2.1",
     "react-addons-test-utils": "^15.3.1",
