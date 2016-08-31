@@ -10,8 +10,8 @@ describe('<AssetResult />', () => {
   const muiTheme = getMuiTheme();
   const shallowWithContext = (node) => shallow(node, {context: {muiTheme}});
   const props = {
-    url: 'http://google.com',
-    showURL: 'http://google.com'
+    url: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js',
+    showURL: '/jquery/3.1.0/jquery.min.js'
   };
   const wrapper = shallowWithContext(<AssetResult {...props} />);
 
