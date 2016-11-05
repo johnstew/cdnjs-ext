@@ -3,15 +3,21 @@ import SearchTextField from '../components/SearchTextField';
 import SearchIcon from '../components/SearchIcon';
 import VersionSelectField from '../components/VersionSelectField';
 import SearchDivider from '../components/SearchDivider';
+import SearchAutoComplete from '../components/SearchAutoComplete';
 import * as styles from '../global/styles';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { search } from '../actions/search';
+import { search, getDataSource } from '../actions/search';
 import { versionChange } from '../actions/select';
 
 class Search extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  componentWillMount() {
+    const { getDataSource } = this.props;
+    getDataSource();
   }
 
   render () {
@@ -21,9 +27,9 @@ class Search extends React.Component {
       return (
         <div style={styles.search.root}>
           <SearchIcon />
-          <SearchTextField
-            placeholder="jQuery..."
+          <SearchAutoComplete
             fullWidth={true}
+            placeholder="jQuery..."
             {...this.props}
           />
         </div>
@@ -32,7 +38,8 @@ class Search extends React.Component {
       return (
         <div style={styles.search.root}>
           <SearchIcon />
-          <SearchTextField
+          <SearchAutoComplete
+            fullWidth={true}
             placeholder="jQuery..."
             {...this.props}
           />
@@ -51,12 +58,13 @@ class Search extends React.Component {
 const mapStateToProps = (state) => {
   return {
     ui: state.ui,
-    selected: state.selected.data
+    selected: state.selected.data,
+    ac: state.search.init
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ search, versionChange }, dispatch);
+  return bindActionCreators({ search, versionChange, getDataSource }, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);

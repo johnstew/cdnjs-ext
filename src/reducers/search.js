@@ -2,7 +2,8 @@ import {
   SEARCH_DONE,
   SEARCH_FAIL,
   SEARCH_STARTED,
-  INCREMENT_PAGE_INDEX
+  INCREMENT_PAGE_INDEX,
+  GET_DATA_SOURCE_DONE
 } from '../actions/types';
 
 export default function search(state = {}, action) {
@@ -21,6 +22,10 @@ export default function search(state = {}, action) {
           pages: [...state.results.pages],
           pageIndex: action.newPageIndex
         }
+      });
+    case GET_DATA_SOURCE_DONE:
+      return _.assign({}, state, {
+        init: action.data
       });
     case SEARCH_STARTED:
       return state;
