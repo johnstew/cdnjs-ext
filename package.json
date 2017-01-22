@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.dev.config.js",
-    "build": "cp -R meta/* build/ && webpack --config ./webpack.prod.config.js",
-    "test": "mocha --require ./src/tests/setup.js --recursive ./src/tests/* --compilers js:babel-core/register"
+    "build": "cp -R meta/* build/ && webpack -p --config ./webpack.prod.config.js",
+    "test": "mocha --require ./src/tests/setup.js --recursive ./src/tests/* --compilers js:babel-core/register",
+    "explorer": "source-map-explorer ./build/main.bundle.js ./build/main.bundle.js.map"
   },
   "keywords": [],
   "author": "John Stewart <me@johnstewart.io> (http://johnstewart.io)",
@@ -14,6 +15,7 @@
   "devDependencies": {
     "babel-core": "^6.11.4",
     "babel-loader": "^6.2.4",
+    "babel-plugin-lodash": "^3.2.11",
     "babel-plugin-transform-object-rest-spread": "^6.8.0",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.11.1",
@@ -21,12 +23,14 @@
     "css-loader": "^0.23.1",
     "enzyme": "^2.4.1",
     "jsdom": "^9.4.2",
+    "lodash-webpack-plugin": "^0.11.0",
     "node-sass": "^3.8.0",
     "react": "^15.2.1",
     "react-addons-test-utils": "^15.3.1",
     "react-dom": "^15.2.1",
     "redux-logger": "^2.6.1",
     "sass-loader": "^4.0.0",
+    "source-map-explorer": "^1.3.3",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.1"
   },

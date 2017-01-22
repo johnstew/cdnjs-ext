@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
@@ -23,6 +24,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new LodashModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       title: 'CDNJS Extension',
       template: './index-template.ejs'
