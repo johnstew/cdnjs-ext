@@ -1,12 +1,15 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var path = require('path');
 
 module.exports = {
   devtool: 'source-map',
-  entry: './src/main.js',
+  entry: {
+    main: path.join(__dirname, '/src/main.js')
+  },
   output: {
-    path: './dev',
-    filename: 'main.bundle.js'
+    path: path.join(__dirname, '/build'),
+    filename: 'bundle.[name].js'
   },
   devServer: {
     inline: true,
@@ -14,16 +17,20 @@ module.exports = {
     contentBase: './dev'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        use: 'babel-loader'
       },
       {
         test: /\.scss$/,
         exclude: /node_modules/,
-        loaders: ["style", "css", "sass"]
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
       }
     ]
   },
